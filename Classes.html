@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+</head>
+
+<body>
+    <script>
+        //classes
+        //es5 - js vanilla - 2009
+        function Students(id, name) {
+            this.id = id;
+            this.name = name;
+            this.college = "Hackeru";
+            this.getDetails = function () {
+                console.log(`Students id is: ${this.id},name is: ${this.name}`);
+            }
+        }
+        let student1 = new Students(1, "Yossi");
+        console.log(student1);
+        let student2 = new Students(2, "David");
+        console.log(student2);
+        //array of students
+        let studentsArray = [
+            new Students(3, "Shira"),
+            new Students(5, "Shevi"),
+            new Students(7, "Shani"),
+        ];
+        console.table(studentsArray);
+        student2.getDetails();
+        studentsArray[2].getDetails();
+        console.log("-----------------");
+        for (let student of studentsArray) {
+            student.getDetails();
+        }
+        console.log("~~~~~~~~~~~~~~~~~~~~~~");
+        //Tar in lesson
+        function User(name, email, password) {
+            this.name = name;
+            this.email = email;
+            this.password = password || "**********";
+            this.printDetails = function () {
+                console.log(`User name is: ${this.name},email is: ${this.email}`);
+            };
+            this.getName = function () {
+                return this.name;
+            };
+            this.getPassword = function () {
+                if (user.type == "admin") {
+                    return this.password;
+                }
+            }
+            this.setName = function (newName) {
+                this.name = newName;
+            }
+        }
+        let user1 = [
+            new User("Gal", "Gal@", "232"),
+            new User("Gil", "Gil@", "323"),
+            new User("Gili", "Gili@"),
+        ];
+        for (let user of user1) {
+            user.printDetails();
+        }
+        console.log(user1[2]);
+        console.log(user1[0].setName("Gali"));
+        console.log(user1[0]);
+
+        //Tar2 in lesson
+        function Student2(_id, _name) {
+            this.id = _id || 1;
+            this.name = _name || "Mor";
+            this.getName = function () {
+                return this.name;
+            };
+            this.setId = function (newId) {
+                this.id = newId;
+            };
+        }
+        var shir = new Student2(undefined, undefined);
+        var yoav = new Student2(10,);
+        console.log(shir, yoav);
+        console.log("=========================");
+        let Student3 = function (id, name) {
+            this.id = id;
+            this.name = name;
+            //get - כללי
+            this.get = function (propName) {
+                return this[propName];
+            };
+            //set - כללי
+            this.set = function (propName, value) {
+                return this[propName] = value;
+            };
+        };
+        let s1 = new Student3(6, "Chani");
+        console.log(s1);
+        console.log(s1.get("name"));
+        console.log(s1.get("id"));
+        s1.set("id", 26);
+        s1.set("name", "Noam");
+        console.log(s1);
+    </script>
+</body>
+
+</html>
